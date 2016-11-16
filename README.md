@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/matisku/ansible-teamcity-server.svg?branch=master)](https://travis-ci.org/matisku/ansible-teamcity-server)
 
 This role will install and configure TemCity Server - CI tool from JetBrains.
+There is a MySQL suport but ib default the server will use build in database.
 
 ## Requirements
 ----------------
@@ -44,13 +45,14 @@ Example playbook:
 
 ```yaml
 - hosts: servers
+  become: yes 
   roles:
+    - ansiblebit.oracle-java 
     - teamcity-server
 ```
 
 ## Author Information
 ----------------
 
-This role was created in 2016 by Mateusz Trojak.
-
-This role was created for [Brainly](http://www.brainly.com) to be used for company CI automation with easy failover mechanism.
+This role was created in 2016 by Mateusz Trojak for [Brainly](http://www.brainly.com).
+We are using this role for company CI automation with easy failover mechanism.

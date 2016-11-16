@@ -32,4 +32,4 @@ script:
   - ansible-playbook -i inventory ./test.yml -vvvv
 
 #notifications:
-#  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
