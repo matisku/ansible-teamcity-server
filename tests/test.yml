@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  become: yes
   roles:
     - role: ../roles/ansiblebit.oracle-java
     - role: ../roles/ansible-teamcity-server

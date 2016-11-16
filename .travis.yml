@@ -13,7 +13,8 @@ addons:
 
 install:
   # Install ansible
-  - pip install ansible
+  - pip2 install ansible
+  - pip2 install --upgrade ansible
 
   # Check ansible version
   - ansible --version
@@ -30,5 +31,5 @@ script:
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml -vvvv
 
-#notifications:
-#  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
