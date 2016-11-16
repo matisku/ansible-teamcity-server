@@ -13,10 +13,6 @@ teamcity_server_dir: "{{ teamcity_server_install_dir }}/TeamCity"
 teamcity_server_data_dir: "{{ teamcity_server_dir }}/BuildServer"
 teamcity_server_plugins_dir: "{{ teamcity_server_data_dir }}/plugins"
 
-# S3
-teamcity_server_s3_bucket: teamcity-server
-teamcity_server_s3_exclude_file: "{{ teamcity_server_dir }}/teamcity-server-s3.exclude"
-
 # MySQL Connector
 teamcity_server_mysql_connector_version: 5.1.40
 teamcity_server_mysql_connector_dir: "/opt/mysql-connector"

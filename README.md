@@ -22,8 +22,6 @@ This role will install and configure TemCity Server - CI tool from Jetbrains.
 | teamcity_server_dir                            | `{{ teamcity_server_install_dir }}/TeamCity`                       | TeamCity install dir             |
 | teamcity_server_data_dir                       | `{{ teamcity_server_dir }}/BuildServer`                            | TeamCity data/conf/plugins dir   |
 | teamcity_server_plugins_dir                    | '{{ teamcity_server_data_dir }}/plugins'                           | TeamCity plugins dir             |
-| teamcity_server_s3_bucket                      | 'teamcity-server'                                                  | S3 Buccket name                  |
-| teamcity_server_s3_exclude_file                | '{{ teamcity_server_dir }}/teamcity-server-s3.exclude'             | Exclude file for S3 sync         |
 | teamcity_server_mysql_server_connector_version | `5.1.40`                                                           | MySQL connector version          |
 | teamcity_server_mysql_connector_dir            | '/opt/mysql-connector'                                             | MySQL connector install dir      |
 | teamcity_server_mysql_server_db_user           | 'teamcity'                                                         | TeamCity MySQL user name         |
