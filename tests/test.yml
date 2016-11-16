@@ -1,4 +1,5 @@
 ---
 - hosts: localhost
   roles:
-    - role: ../roles/ansible-teamcity-server/
+    - role: ../roles/ansiblebit.oracle-java
+    - role: ../roles/ansible-teamcity-server
