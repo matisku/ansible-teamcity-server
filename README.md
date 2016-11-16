@@ -5,12 +5,12 @@
 This role will install and configure TemCity Server - CI tool from Jetbrains.
 
 ## Requirements
-------------
+----------------
 
 1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java)
 
 ## Role Variables
---------------
+----------------
 
 | Variable name                                  | Default value                                                      | Description                      |
 |------------------------------------------------|--------------------------------------------------------------------|----------------------------------|
@@ -33,6 +33,7 @@ This role will install and configure TemCity Server - CI tool from Jetbrains.
 | teamcity_server_mysql_server_jdbc_dir          | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
 
 ## Dependencies
+----------------
 
 This role depends on java role.
 
