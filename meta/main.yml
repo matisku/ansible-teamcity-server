@@ -9,10 +9,8 @@ galaxy_info:
       versions:
         - trusty
   galaxy_tags:
-    - teamcity
-    - continious integration
-  categories:
-    - development
     - system
+    - development
+    - teamcity
   dependencies:
     - ansiblebit.oracle-java
