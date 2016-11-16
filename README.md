@@ -1,5 +1,5 @@
 # TeamCity Server
-=========
+
 [![Build Status](https://travis-ci.org/matisku/ansible-teamcity-server.svg?branch=master)](https://travis-ci.org/matisku/ansible-teamcity-server)
 
 This role will install and configure TemCity Server - CI tool from JetBrains.
