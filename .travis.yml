@@ -31,5 +31,5 @@ script:
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml -vvvv
 
-#notifications:
+notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
