@@ -1,0 +1,33 @@
+description "TeamCity Server"
+
+start on runlevel [2345]
+stop on runlevel [016]
+
+# TeamCity can take a while to shutdown
+kill timeout 30
+
+respawn
+
+pre-start script
+
+  [ ! -f /etc/default/teamcity-server ] && { stop; exit 0; }
+
+  . /etc/default/teamcity-server
+
+  [ "$TEAMCITY_SERVER_ENABLED" != "yes" ] && { stop; exit 0; }
+  
+  exit 0 
+end script
+
+script
+  . /etc/default/teamcity-server
+
+  CATALINA_OPTS="$CATALINA_OPTS $TEAMCITY_SERVER_OPTS -server $TEAMCITY_SERVER_MEM_OPTS -Dlog4j.configuration=\"file:${TEAMCITY_SERVER_PATH}/conf/teamcity-server-log4j.xml\" -Dteamcity_logs=${TEAMCITY_SERVER_PATH}/logs -Djava.awt.headless=true"
+
+  export CATALINA_OPTS
+
+  export TEAMCITY_DATA_PATH
+
+  exec start-stop-daemon --start -c {{ teamcity_server_user }} --exec "${TEAMCITY_SERVER_PATH}/bin/catalina.sh" -- run
+  
+end script

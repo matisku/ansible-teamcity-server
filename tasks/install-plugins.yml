@@ -1,0 +1,31 @@
+---
+- name: "Check if plugins folder exists"
+  file:
+    path: "{{ teamcity_server_plugins_dir }}"
+    state: directory
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0755
+
+- name: "Discover TeamCity plugins enabled on the host"
+  shell: "ls -1 {{ teamcity_server_plugins_dir }} | sort -u"
+  register: current_plugins
+  always_run: yes
+  changed_when: False
+
+- name: "Remove plugins that currently are not in use"
+  file:
+    path: "{{ teamcity_server_plugins_dir }}/{{ item }}"
+    state: absent
+  with_items: "{{ current_plugins.stdout_lines }}"
+  when: "(item | splitext | first) not in (teamcity_server_plugins | map (attribute='name') | list)"
+  notify: restart teamcity-server
+
+- name: "Download TeamCity plugins"
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ teamcity_server_plugins_dir }}/{{ item.name }}.zip"
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+  with_items: "{{ teamcity_server_plugins }}"
+  notify: restart teamcity-server

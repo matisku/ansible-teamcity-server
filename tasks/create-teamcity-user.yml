@@ -1,0 +1,17 @@
+---
+- name: "Create teamcity group"
+  group:
+    name: "{{ teamcity_server_group }}"
+    state: present
+    system: yes
+
+- name: "Create teamcity user"
+  user:
+    name: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    groups: www-data
+    state: present
+    shell: /bin/bash
+    createhome: yes
+    system: yes
+    home: "{{ teamcity_server_home }}"

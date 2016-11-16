@@ -1,0 +1,6 @@
+---
+- include: create-teamcity-user.yml
+- include: mysql-connector.yml
+  when: "teamcity_server_db_type == 'mysql'"
+- include: teamcity-server.yml
+- include: install-plugins.yml

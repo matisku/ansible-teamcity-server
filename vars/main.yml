@@ -1,0 +1,37 @@
+---
+teamcity_server_admin_user_created: "{{ teamcity_server_dir }}/admin-user-created"
+teamcity_server_license_accepted: "{{ teamcity_server_dir }}/license-accepted"
+
+teamcity_server_bind_port: 8111
+
+teamcity_server_user: teamcity
+teamcity_server_group: teamcity
+teamcity_server_home: /home/teamcity
+
+teamcity_server_plugins:
+  - name: "crowd-plugin"
+    url: https://github.com/greggigon/TeamCity-Crowd-Plugin/archive/0.3.0.zip
+
+  - name: "ansible-plugin"
+    url: https://github.com/andreizhuk/tc-ansible-runner/releases/download/v1.0.1/ansible-runner-dist.zip
+
+  - name: "envinject-plugin"
+    url: https://github.com/kannanekanath/teamcity-envinject-plugin/releases/download/1.0/envinject.zip
+
+  - name: "xunit-plugin"
+    url: https://github.com/carlpett/xUnit-TeamCity/releases/download/1.1.3/xUnit.zip
+
+  - name: "github-plugin"
+    url: http://teamcity.jetbrains.com/guestAuth/repository/download/bt398/lastest.lastSuccessful/teamcity.github.zip
+
+  - name: "commit-hook-plugin"
+    url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityCommitHooks_Build/.lastPinned/teamcity-commit-hooks.zip?guest=1
+
+  - name: "docker-plugin"
+    url: https://teamcity.jetbrains.com/repository/download/TeamCityVirtual_Build/843525:id/TeamCity.Virtual.zip?guest=1
+
+  - name: "chuck-plugin"
+    url: https://dl.bintray.com/dbf/teamcity-chuck-plugin/chucktcplugin-0.5.2.zip
+
+  - name: "jira-plugin"
+    url:  https://bitbucket.org/mamirov/jirareporter/downloads/jirareporter.zip

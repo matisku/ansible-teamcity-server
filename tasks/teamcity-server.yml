@@ -1,0 +1,136 @@
+---
+- name: "Get distribution"
+  get_url:
+    url: "http://download.jetbrains.com/teamcity/TeamCity-{{ teamcity_server_version }}.tar.gz"
+    dest: "/tmp/TeamCity-{{ teamcity_server_version }}.tar.gz"
+    validate_certs: no
+    timeout: 60
+    checksum: "sha256:{{ teamcity_server_sha256 }}"
+
+- name: "Unpack distribution"
+  unarchive:
+    src: "/tmp/TeamCity-{{ teamcity_server_version }}.tar.gz"
+    dest: "{{ teamcity_server_install_dir }}"
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    copy: "no"
+
+- name: "Add TeamCity service default config"
+  template:
+    src: "teamcity-server.j2"
+    dest: "/etc/default/teamcity-server"
+    mode: 0644
+
+- name: "Put TeamCity service file"
+  template:
+    src: "teamcity-server.conf.j2"
+    dest: "/etc/init/teamcity-server.conf"
+    mode: 0644
+
+- name: "Create dir structure"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0755
+  with_items:
+    - "{{ teamcity_server_dir }}/logs"
+    - "{{ teamcity_server_data_dir }}/config"
+
+- name: "Add database config"
+  template:
+    src: "database.{{ teamcity_server_db_type }}.properties.j2"
+    dest: "{{ teamcity_server_data_dir }}/config/database.properties"
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0644
+
+- name: "Start TeamCity service"
+  service:
+    name: teamcity-server
+    state: started
+    enabled: yes
+
+- name: "Wait until TeamCity starts"
+  wait_for:
+    host: 127.0.0.1
+    port: "{{ teamcity_server_bind_port }}"
+    delay: 10
+    timeout: 30
+
+- name: "Wait for auto-configuration"
+  uri:
+    url: "http://127.0.0.1:{{ teamcity_server_bind_port }}/showAgreement.html"
+    method: GET
+    status_code: 200
+  register: _result
+  until: _result.status == 200
+  retries: 30
+  delay: 20
+
+- name: "Accept License"
+  uri:
+    url: "http://127.0.0.1:{{ teamcity_server_bind_port }}/showAgreement.html"
+    method: POST
+    headers:
+      Content-Type: "application/x-www-form-urlencoded"
+    body: "accept=true"
+    status_code: 302
+    creates: "{{ teamcity_server_license_accepted }}"
+
+- name: "Create license-accepted"
+  file:
+    path: "{{ teamcity_server_license_accepted }}"
+    state: touch
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0644
+
+- name: "Get Authentication Token"
+  shell: "grep -ioE 'Super user authentication token: \"(.*)\"' {{ teamcity_server_dir }}/logs/teamcity-server.log | tail -1 | cut -f2 -d'\"'"
+  register: _token
+  always_run: yes
+  args:
+    creates: "{{ teamcity_server_admin_user_created }}"
+
+- name: "Generate base64 for auth"
+  set_fact:
+    _base64_token: "{{ (':'~_token.stdout) | b64encode }}"
+
+- name: "Create Admin User"
+  uri:
+    url: "http://127.0.0.1:{{ teamcity_server_bind_port }}/httpAuth/app/rest/users"
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Basic {{ _base64_token }}"
+    body:
+      username: "{{ teamcity_server_su_user }}"
+      password: "{{ teamcity_server_su_password }}"
+    body_format: json
+    creates: "{{ teamcity_server_admin_user_created }}"
+
+- name: "Setup Admin User"
+  uri:
+    url: "http://127.0.0.1:{{ teamcity_server_bind_port }}/httpAuth/app/rest/users/username:{{ teamcity_server_su_user }}/roles/SYSTEM_ADMIN/g/"
+    method: PUT
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Basic {{ _base64_token }}"
+    body_format: json
+    creates: "{{ teamcity_server_admin_user_created }}"
+
+- name: "Create admin-user-created"
+  file:
+    path: "{{ teamcity_server_admin_user_created }}"
+    state: touch
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0644
+
+- name: "Ensure TeamCity is running"
+  service:
+    name: teamcity-server
+    state: started
+    enabled: yes
