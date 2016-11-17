@@ -15,8 +15,8 @@ There is a MySQL suport but ib default the server will use build in database.
 
 | Variable name                                  | Default value                                                      | Description                      |
 |------------------------------------------------|--------------------------------------------------------------------|----------------------------------|
-| teamcity_server_version                        | `10.0.2`                                                           | TeamCity version to install      |
-| teamcity_server_sha256                         | `35abb03ed176c8326adc86cac17a93412c7248277d9aae422b89be17edff8f97` | sha256 for TeamCity package      |
+| teamcity_server_version                        | `10.0.3`                                                           | TeamCity version to install      |
+| teamcity_server_sha256                         | `81943dd664eff4fec6a38ebc6e5cf27155c9da7aa224ef0a142ee16e0dc42e03` | sha256 for TeamCity package      |
 | teamcity_server_su_user                        | `teamcity`                                                         | Admin user name for TeamCity     |
 | teamcity_server_su_password                    | `teamcity`                                                         | Admin user password for TeamCity |
 | teamcity_server_install_dir                    | `/opt`                                                             | TeamCity unpack dir              |
