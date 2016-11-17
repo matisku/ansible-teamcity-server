@@ -2,10 +2,11 @@
 language: python
 python: "3.5"
 
+# Use Ubunt 14.04
 sudo: required
 dist: trusty
 
-# Install ansible
+# Install pip
 addons:
   apt:
     packages:
@@ -14,7 +15,6 @@ addons:
 install:
   # Install ansible
   - pip2 install ansible
-  - pip2 install --upgrade ansible
 
   # Check ansible version
   - ansible --version
@@ -24,12 +24,11 @@ install:
   - ansible-galaxy install --roles-path roles ansiblebit.oracle-java
   - mv -v README.md defaults handlers meta tasks templates vars roles/ansible-teamcity-server
   - mv ansible.cfg tests
-  - ls -lth -R .
 
 script:
   - cd tests
   - ansible-playbook ./test.yml -i inventory --syntax-check
-  - ansible-playbook -i inventory ./test.yml -vvvv
+  - ansible-playbook -i inventory ./test.yml
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

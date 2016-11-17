@@ -1,18 +1,16 @@
 ---
 galaxy_info:
   author: Mateusz Trojak
-  description: Installs and automatically configure TeamCityi Server.
-  license: MIT
+  description: Installs and automatically configure TeamCity Server.
+  license: GPL
   min_ansible_version: 2.0.0
   platforms:
     - name: Ubuntu
       versions:
         - trusty
   galaxy_tags:
-    - teamcity
-    - continious integration
-  categories:
-    - development
     - system
+    - development
+    - teamcity
   dependencies:
     - ansiblebit.oracle-java
