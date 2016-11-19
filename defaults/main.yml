@@ -23,7 +23,7 @@ teamcity_server_mysql_db_password: teamcity
 teamcity_server_mysql_db_name: teamcity
 
 # MySQL DB type: Available values: local, mysql
-teamcity_server_db_type: "local"
+teamcity_server_db_type: "mysql"
 
 # MySQL DB Server
 teamcity_server_mysql_database_url: localhost
