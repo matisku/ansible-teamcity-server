@@ -26,7 +26,7 @@ teamcity_server_mysql_db_name: teamcity
 teamcity_server_db_type: "local"
 
 # MySQL DB Server
-teamcity_server_mysql_database_url: mysql.teamcity-server.zdn
+teamcity_server_mysql_database_url: localhost
 teamcity_server_mysql_database_port: 3306
 
 # MySQL JDBC Driver Dir
