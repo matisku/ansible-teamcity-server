@@ -14,4 +14,3 @@ galaxy_info:
     - teamcity
   dependencies:
     - ansiblebit.oracle-java
-    - geerlingguy.mysql
