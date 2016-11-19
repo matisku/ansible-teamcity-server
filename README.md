@@ -43,8 +43,7 @@ As a result, this role will setup fully working TeamCity Server.
 ## Dependencies
 ----------------
 
-This role depends on java role and MySQL database running. 
-You can use external database or setup a local one with `geerlingguy.mysql` ansible role
+This role depends on `java` role. 
 
 ## Example Playbook
 ----------------
