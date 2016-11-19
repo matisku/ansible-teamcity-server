@@ -2,6 +2,5 @@
 - hosts: localhost
   become: yes
   roles:
-    - role: ../roles/geerlingguy.mysql 
     - role: ../roles/ansiblebit.oracle-java
     - role: ../roles/ansible-teamcity-server
