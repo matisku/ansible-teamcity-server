@@ -9,6 +9,7 @@ There is a MySQL suport but ib default the server will use build in database.
 ----------------
 
 1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java)
+2. [geerlingguy.mysql](https://github.com/geerlingguy/ansible-role-mysql)
 
 ## Role Variables
 ----------------
