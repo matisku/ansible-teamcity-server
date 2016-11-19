@@ -30,5 +30,8 @@ script:
   - ansible-playbook ./test.yml -i inventory --syntax-check
   - ansible-playbook -i inventory ./test.yml
 
+after_script:
+  - cat /opt/TeamCity/logs/teamcity-server.log
+
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

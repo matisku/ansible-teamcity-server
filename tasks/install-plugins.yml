@@ -10,7 +10,7 @@
 - name: "Discover TeamCity plugins enabled on the host"
   shell: "ls -1 {{ teamcity_server_plugins_dir }} | sort -u"
   register: current_plugins
-  always_run: yes
+  check_mode: no
   changed_when: False
 
 - name: "Remove plugins that currently are not in use"
