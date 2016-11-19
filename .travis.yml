@@ -28,7 +28,9 @@ install:
 script:
   - cd tests
   - ansible-playbook ./test.yml -i inventory --syntax-check
-  - ansible-playbook -i inventory ./test.yml -vvv
+  - ansible-playbook -i inventory ./test.yml
+
+after_script:
   - cat /opt/TeamCity/logs/teamcity-server.log
 
 notifications:
