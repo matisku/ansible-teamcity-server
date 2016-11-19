@@ -3,13 +3,19 @@
 [![Build Status](https://travis-ci.org/matisku/ansible-teamcity-server.svg?branch=master)](https://travis-ci.org/matisku/ansible-teamcity-server)
 
 This role will install and configure TemCity Server - CI tool from JetBrains.
-There is a MySQL suport but ib default the server will use build in database.
+I created this role because I needed to have a fully automated TeamCity setup.
+This role will:
+1. Install TeamCity 
+2. Setup database connection (local/mysql)
+3. Setup TeamCity default admin user - teamcity
+4. Accept license
+
+As a result, this role will setup fully working TeamCity Server.
 
 ## Requirements
 ----------------
 
-1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java)
-2. [geerlingguy.mysql](https://github.com/geerlingguy/ansible-role-mysql)
+1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity server
 
 ## Role Variables
 ----------------
@@ -37,7 +43,8 @@ There is a MySQL suport but ib default the server will use build in database.
 ## Dependencies
 ----------------
 
-This role depends on java role.
+This role depends on java role and MySQL database running. 
+You can use external database or setup a local one with `geerlingguy.mysql` ansible role
 
 ## Example Playbook
 ----------------
@@ -48,7 +55,6 @@ Example playbook:
 - hosts: servers
   become: yes 
   roles:
-    - ansiblebit.oracle-java 
     - matisq.teamcity-server
 ```
 
