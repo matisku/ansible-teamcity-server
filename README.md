@@ -52,10 +52,10 @@ This role depends on `java` role.
 Example playbook:
 
 ```yaml
-- hosts: servers
+- hosts: teamcity-servers
   become: yes 
   roles:
-    - matisq.teamcity-server
+    - matisku.teamcity-server
 ```
 
 ## Author Information
