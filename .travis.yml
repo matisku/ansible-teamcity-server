@@ -29,7 +29,7 @@ install:
 script:
   - cd tests
   - ansible-playbook ./test.yml -i inventory --syntax-check
-  - ansible-playbook -i inventory ./test.yml
+  - ansible-playbook -i inventory ./test.yml -vvv
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
