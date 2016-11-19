@@ -21,6 +21,7 @@ install:
   # Setup Env
   - mkdir -vp roles/ansible-teamcity-server
   - ansible-galaxy install --roles-path roles ansiblebit.oracle-java
+  - ansible-galaxy install --roles-path roles geerlingguy.mysql
   - mv -v README.md defaults handlers meta tasks templates vars roles/ansible-teamcity-server
   - mv ansible.cfg tests
   - ls -lth -R .
@@ -31,4 +32,4 @@ script:
   - ansible-playbook -i inventory ./test.yml -vvvv
 
 #notifications:
-#  webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
