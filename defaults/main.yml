@@ -1,7 +1,7 @@
 ---
 # Teamcity Version
-teamcity_server_version: 10.0.3
-teamcity_server_sha256: 81943dd664eff4fec6a38ebc6e5cf27155c9da7aa224ef0a142ee16e0dc42e03
+teamcity_server_version: 10.0.4
+teamcity_server_sha256: a565913b3dc40262072e7d92a3e381d2eace8d6bf018ffaf67f335252b28b2c1
 
 # TeamCity User
 teamcity_server_su_user: teamcity
@@ -12,6 +12,9 @@ teamcity_server_install_dir: /opt
 teamcity_server_dir: "{{ teamcity_server_install_dir }}/TeamCity"
 teamcity_server_data_dir: "{{ teamcity_server_dir }}/BuildServer"
 teamcity_server_plugins_dir: "{{ teamcity_server_data_dir }}/plugins"
+
+# TeamCity Plugins
+teamcity_server_plugins: []
 
 # MySQL Connector
 teamcity_server_mysql_connector_version: 5.1.40
