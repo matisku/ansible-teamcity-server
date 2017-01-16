@@ -11,6 +11,7 @@ This role will:
 4. Accept license
 
 As a result, this role will setup fully working TeamCity Server.
+Feel free to use it along with my TeamCity Server role - [matisku.teamcity-agent](https://github.com/matisku/ansible-teamcity-agent).
 
 ## Requirements
 ----------------
@@ -51,10 +52,10 @@ This role depends on `java` role.
 Example playbook:
 
 ```yaml
-- hosts: servers
+- hosts: teamcity-servers
   become: yes 
   roles:
-    - matisq.teamcity-server
+    - matisku.teamcity-server
 ```
 
 ## Author Information
@@ -62,3 +63,7 @@ Example playbook:
 
 This role was created in 2016 by Mateusz Trojak for [Brainly](http://www.brainly.com).
 We are using this role for company CI automation with easy failover mechanism.
+
+## License
+----------------
+Copyright © 2016 Mateusz Trojak. See LICENSE for details.
