@@ -10,7 +10,7 @@ teamcity_server_home: /home/teamcity
 
 teamcity_server_plugins:
   - name: "crowd-plugin"
-    url: https://github.com/greggigon/TeamCity-Crowd-Plugin/archive/0.3.0.zip
+    url: https://dl.bintray.com/greggigon/generic/teamcity-crowd-plugin-0.3.0.zip
 
   - name: "ansible-plugin"
     url: https://github.com/andreizhuk/tc-ansible-runner/releases/download/v1.0.1/ansible-runner-dist.zip
@@ -35,3 +35,18 @@ teamcity_server_plugins:
 
   - name: "jira-plugin"
     url:  https://bitbucket.org/mamirov/jirareporter/downloads/jirareporter.zip
+
+  - name: "achievements-plugin"
+    url: http://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityAchievements_Build/.lastPinned/achievements.zip?guest=1
+
+  - name: "s3cmd-plugin"
+    url: https://github.com/guardian/teamcity-s3-plugin/releases/download/v1.6.0/s3-plugin.zip
+
+  - name: "build-matrix-plugin"
+    url: https://github.com/presidentio/teamcity-matrix-build-plugin/releases/download/v1.0.0/matrix-build.zip
+
+  - name: "slack-plugin"
+    url: https://github.com/PeteGoo/tcSlackBuildNotifier/releases/download/v1.4.6/tcSlackNotificationsPlugin.zip
+
+  - name: "webhook-plugin"
+    url: https://github.com/tcplugins/tcWebHooks/releases/download/v1.1-alpha8.140.143/tcWebHooksPlugin-1.1-alpha8.140.143.zip

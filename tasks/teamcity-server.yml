@@ -7,14 +7,6 @@
     timeout: 60
     checksum: "sha256:{{ teamcity_server_sha256 }}"
 
-- name: "Unpack distribution"
-  unarchive:
-    src: "/tmp/TeamCity-{{ teamcity_server_version }}.tar.gz"
-    dest: "{{ teamcity_server_install_dir }}"
-    owner: "{{ teamcity_server_user }}"
-    group: "{{ teamcity_server_group }}"
-    copy: "no"
-
 - name: "Add TeamCity service default config"
   template:
     src: "teamcity-server.j2"
@@ -26,6 +18,24 @@
     src: "teamcity-server.conf.j2"
     dest: "/etc/init/teamcity-server.conf"
     mode: 0644
+
+- name: "Stop TeamCity Server before upgrade"
+  service:
+    name: teamcity-server
+    state: stopped
+
+- name: "Ensure that upgrade will not fail"
+  file:
+    path: "{{ teamcity_server_dir }}/webapps"
+    state: absent
+
+- name: "Unpack distribution"
+  unarchive:
+    src: "/tmp/TeamCity-{{ teamcity_server_version }}.tar.gz"
+    dest: "{{ teamcity_server_install_dir }}"
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    copy: "no"
 
 - name: "Create dir structure"
   file:
