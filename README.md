@@ -7,7 +7,7 @@ I created this role because I needed to have a fully automated TeamCity setup.
 This role will:
 1. Install TeamCity 
 2. Setup database connection (local/mysql)
-3. Setup TeamCity default admin user - teamcity
+3. Setup TeamCity default admin user - `teamcity`
 4. Accept license
 
 As a result, this role will setup fully working TeamCity Server.
@@ -16,7 +16,7 @@ Feel free to use it along with my TeamCity Server role - [matisku.teamcity-agent
 ## Requirements
 ----------------
 
-1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity server
+1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity Server
 
 ## Role Variables
 ----------------
