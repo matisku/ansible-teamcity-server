@@ -66,4 +66,4 @@ We are using this role for company CI automation with easy failover mechanism.
 
 ## License
 ----------------
-Copyright © 2016 Mateusz Trojak. See LICENSE for details.
+Copyright © 2017 Mateusz Trojak. See LICENSE for details.
