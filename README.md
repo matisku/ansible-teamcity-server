@@ -1,4 +1,5 @@
-# TeamCity Server
+TeamCity Server
+=========
 
 [![Build Status](https://travis-ci.org/matisku/ansible-teamcity-server.svg?branch=master)](https://travis-ci.org/matisku/ansible-teamcity-server)
 
@@ -14,13 +15,9 @@ As a result, this role will setup fully working TeamCity Server.
 Feel free to use it along with my TeamCity Server role - [matisku.teamcity-agent](https://github.com/matisku/ansible-teamcity-agent).
 
 ## Requirements
-----------------
-
 1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity Server
 
 ## Role Variables
-----------------
-
 | Variable name                                  | Default value                                                      | Description                      |
 |------------------------------------------------|--------------------------------------------------------------------|----------------------------------|
 | teamcity_server_version                        | `10.0.4`                                                           | TeamCity version to install      |
@@ -42,13 +39,9 @@ Feel free to use it along with my TeamCity Server role - [matisku.teamcity-agent
 | teamcity_server_mysql_server_jdbc_dir          | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
 
 ## Dependencies
-----------------
-
 This role depends on `java` role. 
 
 ## Example Playbook
-----------------
-
 Example playbook:
 
 ```yaml
@@ -59,11 +52,8 @@ Example playbook:
 ```
 
 ## Author Information
-----------------
-
 This role was created in 2016 by Mateusz Trojak for [Brainly](http://www.brainly.com).
 We are using this role for company CI automation with easy failover mechanism.
 
 ## License
-----------------
 Copyright © 2017 Mateusz Trojak. See LICENSE for details.
