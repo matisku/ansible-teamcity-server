@@ -6,6 +6,7 @@
     validate_certs: no
     timeout: 60
     checksum: "sha256:{{ teamcity_server_sha256 }}"
+  register: _teamcity_package
 
 - name: "Add TeamCity service default config"
   template:
@@ -23,11 +24,13 @@
   service:
     name: teamcity-server
     state: stopped
+  when: _teamcity_package|changed
 
 - name: "Ensure that upgrade will not fail"
   file:
     path: "{{ teamcity_server_dir }}/webapps"
     state: absent
+  when: _teamcity_package|changed
 
 - name: "Unpack distribution"
   unarchive:
@@ -46,12 +49,12 @@
     mode: 0755
   with_items:
     - "{{ teamcity_server_dir }}/logs"
-    - "{{ teamcity_server_data_dir }}/config"
+    - "{{ teamcity_server_config_dir }}"
 
 - name: "Add database config"
   template:
     src: "database.{{ teamcity_server_db_type }}.properties.j2"
-    dest: "{{ teamcity_server_data_dir }}/config/database.properties"
+    dest: "{{ teamcity_server_config_dir }}/database.properties"
     owner: "{{ teamcity_server_user }}"
     group: "{{ teamcity_server_group }}"
     mode: 0644
