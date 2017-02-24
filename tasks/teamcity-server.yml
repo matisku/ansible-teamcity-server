@@ -49,12 +49,12 @@
     mode: 0755
   with_items:
     - "{{ teamcity_server_dir }}/logs"
-    - "{{ teamcity_server_data_dir }}/config"
+    - "{{ teamcity_server_config_dir }}"
 
 - name: "Add database config"
   template:
     src: "database.{{ teamcity_server_db_type }}.properties.j2"
-    dest: "{{ teamcity_server_data_dir }}/config/database.properties"
+    dest: "{{ teamcity_server_config_dir }}/database.properties"
     owner: "{{ teamcity_server_user }}"
     group: "{{ teamcity_server_group }}"
     mode: 0644
