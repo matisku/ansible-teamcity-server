@@ -1,0 +1,18 @@
+---
+- name: "Check if config folder exists"
+  file:
+    path: "{{ teamcity_server_config_dir }}"
+    state: directory
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0755
+
+- name: "Put license keys"
+  no_log: yes
+  lineinfile:
+    dest: "{{ teamcity_server_config_dir }}/license.keys"
+    line: "{{ item }}"
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    create: yes
+  with_items: "{{ teamcity_server_license_keys }}"

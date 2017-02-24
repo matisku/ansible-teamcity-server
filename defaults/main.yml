@@ -16,6 +16,9 @@ teamcity_server_plugins_dir: "{{ teamcity_server_data_dir }}/plugins"
 # TeamCity Plugins
 teamcity_server_plugins: []
 
+# Teamcity Licenses
+teamcity_server_license_keys: []
+
 # MySQL Connector
 teamcity_server_mysql_connector_version: 5.1.40
 teamcity_server_mysql_connector_dir: "/opt/mysql-connector"

@@ -4,3 +4,4 @@
   when: "teamcity_server_db_type == 'mysql'"
 - include: teamcity-server.yml
 - include: install-plugins.yml
+- include: license.yml
