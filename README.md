@@ -18,26 +18,26 @@ Feel free to use it along with my TeamCity Server role - [matisku.teamcity-agent
 1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity Server
 
 ## Role Variables
-| Variable name                                  | Default value                                                      | Description                      |
-|------------------------------------------------|--------------------------------------------------------------------|----------------------------------|
-| teamcity_server_version                        | `10.0.5`                                                           | TeamCity version to install      |
-| teamcity_server_sha256                         | `b9a58aedea64ddb399344316ee720d32f4b85dbeae17c1395561e7a87b185a0e` | sha256 for TeamCity package      |
-| teamcity_server_su_user                        | `teamcity`                                                         | Admin user name for TeamCity     |
-| teamcity_server_su_password                    | `teamcity`                                                         | Admin user password for TeamCity |
-| teamcity_server_install_dir                    | `/opt`                                                             | TeamCity unpack dir              |
-| teamcity_server_dir                            | `{{ teamcity_server_install_dir }}/TeamCity`                       | TeamCity install dir             |
-| teamcity_server_data_dir                       | `{{ teamcity_server_dir }}/BuildServer`                            | TeamCity data/conf/plugins dir   |
-| teamcity_server_plugins_dir                    | `{{ teamcity_server_data_dir }}/plugins`                           | TeamCity plugins dir             |
-| teamcity_server_license_keys                   | ``                                                                 | TeamCity Licenses                |
-| teamcity_server_mysql_server_connector_version | `5.1.40`                                                           | MySQL connector version          |
-| teamcity_server_mysql_connector_dir            | `/opt/mysql-connector`                                             | MySQL connector install dir      |
-| teamcity_server_mysql_server_db_user           | `teamcity`                                                         | TeamCity MySQL user name         |
-| teamcity_server_mysql_server_db_password       | `teamcity`                                                         | TeamCity MySQL user password     |
-| teamcity_server_mysql_server_db_name           | `teamcity`                                                         | TeamCity MySQL database          |
-| teamcity_server_db_type                        | `local`                                                            | Database version: local or mysql |
-| teamcity_server_mysql_server_database_url      | `localhost`                                                        | MySQL database URL               |
-| teamcity_server_mysql_server_database_port     | `3306`                                                             | MySQL database port              |
-| teamcity_server_mysql_server_jdbc_dir          | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
+| Variable name                           | Default value                                                      | Description                      |
+|-----------------------------------------|--------------------------------------------------------------------|----------------------------------|
+| teamcity_server_version                 | `10.0.5`                                                           | TeamCity version to install      |
+| teamcity_server_sha256                  | `b9a58aedea64ddb399344316ee720d32f4b85dbeae17c1395561e7a87b185a0e` | sha256 for TeamCity package      |
+| teamcity_server_su_user                 | `teamcity`                                                         | Admin user name for TeamCity     |
+| teamcity_server_su_password             | `teamcity`                                                         | Admin user password for TeamCity |
+| teamcity_server_install_dir             | `/opt`                                                             | TeamCity unpack dir              |
+| teamcity_server_dir                     | `{{ teamcity_server_install_dir }}/TeamCity`                       | TeamCity install dir             |
+| teamcity_server_data_dir                | `{{ teamcity_server_dir }}/BuildServer`                            | TeamCity data/conf/plugins dir   |
+| teamcity_server_plugins_dir             | `{{ teamcity_server_data_dir }}/plugins`                           | TeamCity plugins dir             |
+| teamcity_server_license_keys            | `[]`                                                               | List of TeamCity Licenses        |
+| teamcity_server_mysql_connector_version | `5.1.40`                                                           | MySQL connector version          |
+| teamcity_server_mysql_connector_dir     | `/opt/mysql-connector`                                             | MySQL connector install dir      |
+| teamcity_server_mysql_db_user           | `teamcity`                                                         | TeamCity MySQL user name         |
+| teamcity_server_mysql_db_password       | `teamcity`                                                         | TeamCity MySQL user password     |
+| teamcity_server_mysql_db_name           | `teamcity`                                                         | TeamCity MySQL database          |
+| teamcity_server_db_type                 | `local`                                                            | Database version: local or mysql |
+| teamcity_server_mysql_database_url      | `localhost`                                                        | MySQL database URL               |
+| teamcity_server_mysql_database_port     | `3306`                                                             | MySQL database port              |
+| teamcity_server_mysql_jdbc_dir          | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
 
 ## Dependencies
 This role depends on `java` role. 
