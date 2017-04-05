@@ -12,7 +12,7 @@ This role will:
 4. Accept license
 
 As a result, this role will setup fully working TeamCity Server.
-Feel free to use it along with my TeamCity Server role - [matisku.teamcity-agent](https://github.com/matisku/ansible-teamcity-agent).
+Feel free to use it along with my TeamCity Agent role - [matisku.teamcity-agent](https://github.com/matisku/ansible-teamcity-agent).
 
 ## Requirements
 1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity Server
