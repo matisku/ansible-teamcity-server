@@ -5,6 +5,7 @@ TeamCity Server
 
 This role will install and configure TemCity Server - CI tool from JetBrains.
 I created this role because I needed to have a fully automated TeamCity setup.
+
 This role will:
 1. Install TeamCity 
 2. Setup database connection (local/mysql)
