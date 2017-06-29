@@ -21,8 +21,8 @@ Feel free to use it along with my TeamCity Agent role - [matisku.teamcity-agent]
 ## Role Variables
 | Variable name                           | Default value                                                      | Description                      |
 |-----------------------------------------|--------------------------------------------------------------------|----------------------------------|
-| teamcity_server_version                 | `10.0.5`                                                           | TeamCity version to install      |
-| teamcity_server_sha256                  | `b9a58aedea64ddb399344316ee720d32f4b85dbeae17c1395561e7a87b185a0e` | sha256 for TeamCity package      |
+| teamcity_server_version                 | `2017.1.2`                                                         | TeamCity version to install      |
+| teamcity_server_sha256                  | `12444f417cee122135310929414d5ff51f048eba251eb0b7eee330a5757e32d9` | sha256 for TeamCity package      |
 | teamcity_server_su_user                 | `teamcity`                                                         | Admin user name for TeamCity     |
 | teamcity_server_su_password             | `teamcity`                                                         | Admin user password for TeamCity |
 | teamcity_server_install_dir             | `/opt`                                                             | TeamCity unpack dir              |
