@@ -28,7 +28,7 @@ teamcity_server_plugins:
     url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityCommitHooks_Build/.lastPinned/teamcity-commit-hooks.zip?guest=1
 
   - name: "docker-plugin"
-    url: https://teamcity.jetbrains.com/repository/download/TeamCityVirtual_Build/843525:id/TeamCity.Virtual.zip?guest=1
+    url: https://teamcity.jetbrains.com/repository/download/TeamCityVirtual_Build/.lastPinned/TeamCity.Virtual.zip?guest=1
 
   - name: "chuck-plugin"
     url: https://dl.bintray.com/dbf/teamcity-chuck-plugin/chucktcplugin-0.5.2.zip
