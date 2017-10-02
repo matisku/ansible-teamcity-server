@@ -9,7 +9,7 @@ matrix:
       dist: trusty
     - os: linux
       sudo: required
-      python: xenial
+      dist: xenial
 
 # Install pip
 addons:
