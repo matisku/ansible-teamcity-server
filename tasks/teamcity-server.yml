@@ -14,11 +14,19 @@
     dest: "/etc/default/teamcity-server"
     mode: 0644
 
-- name: "Put TeamCity service file"
+- name: "Put TeamCity service file (sysv)"
   template:
-    src: "teamcity-server.conf.j2"
-    dest: "/etc/init/teamcity-server.conf"
+    src: "teamcity-agent.conf.j2"
+    dest: "/etc/init/teamcity-agent.conf"
     mode: 0644
+  when: "ansible_service_mgr != 'systemd'"
+
+- name: "Put TeamCity service file (systemd)"
+  template:
+    src: "teamcity-agent.service.j2"
+    dest: "/lib/systemd/system/teamcity-server.service"
+    mode: 0644
+  when: "ansible_service_mgr == 'systemd'"
 
 - name: "Stop TeamCity Server before upgrade"
   service:
