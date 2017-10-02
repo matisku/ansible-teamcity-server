@@ -1,16 +1,25 @@
 ---
 language: python
-python: "3.5"
+python: "2.7"
 
-# Use Ubunt 14.04
-sudo: required
-dist: trusty
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      dist: trusty
+    - os: linux
+      sudo: required
+      python: xenial
 
 # Install pip
 addons:
   apt:
     packages:
     - python-pip
+
+before_install:
+  # Make sure everything's up to date.
+  - sudo apt-get update -qq
 
 install:
   # Install ansible

@@ -16,8 +16,8 @@
 
 - name: "Put TeamCity service file (sysv)"
   template:
-    src: "teamcity-agent.conf.j2"
-    dest: "/etc/init/teamcity-agent.conf"
+    src: "teamcity-server.conf.j2"
+    dest: "/etc/init/teamcity-server.conf"
     mode: 0644
   when: "ansible_service_mgr != 'systemd'"
 
