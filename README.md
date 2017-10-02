@@ -7,13 +7,16 @@ This role will install and configure TemCity Server - CI tool from JetBrains.
 I created this role because I needed to have a fully automated TeamCity setup.
 
 This role will:
-1. Install TeamCity 
+1. Install TeamCity
 2. Setup database connection (local/mysql)
 3. Setup TeamCity default admin user - `teamcity`
 4. Accept license
 
 As a result, this role will setup fully working TeamCity Server.
 Feel free to use it along with my TeamCity Agent role - [matisku.teamcity-agent](https://github.com/matisku/ansible-teamcity-agent).
+
+## Compatibility
+This role is compatible with Ubuntu 14.04 and Ubuntu 16.04
 
 ## Requirements
 1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity Server
