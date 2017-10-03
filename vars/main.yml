@@ -19,7 +19,7 @@ teamcity_server_plugins:
     url: https://github.com/kannanekanath/teamcity-envinject-plugin/releases/download/1.0/envinject.zip
 
   - name: "xunit-plugin"
-    url: https://github.com/carlpett/xUnit-TeamCity/releases/download/1.1.3/xUnit.zip
+    url: https://github.com/carlpett/xUnit-TeamCity/releases/download/v1.2.0/xUnit.zip
 
   - name: "github-plugin"
     url: http://teamcity.jetbrains.com/guestAuth/repository/download/bt398/lastest.lastSuccessful/teamcity.github.zip
