@@ -1,10 +1,16 @@
 #/lib/systemd/system
 [Unit]
 Description="TeamCity Server"
+Requires=network.target
+After=syslog.target network.target
 
 [Service]
-Type=forking
+Type=oneshot
 User={{ teamcity_server_user }}
+Group={{ teamcity_server_user }}
+RemainAfterExit=true
+SuccessExitStatus=0 143
+EnvironmentFile=/etc/default/teamcity-server
 PIDFile={{ teamcity_server_dir }}/logs/teamcity-server.pid
 ExecStart={{ teamcity_server_dir }}/bin/teamcity-server.sh start
 ExecStop={{ teamcity_server_dir }}/bin/teamcity-server.sh stop
