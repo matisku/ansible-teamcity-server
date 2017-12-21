@@ -50,3 +50,9 @@ teamcity_server_plugins:
 
   - name: "webhook-plugin"
     url: https://github.com/tcplugins/tcWebHooks/releases/download/v1.1-alpha8.140.143/tcWebHooksPlugin-1.1-alpha8.140.143.zip
+
+  - name: "sonar-plugin"
+    url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamCitySonarQubePlugin_Build/.lastPinned/sonar-plugin.zip?guest=1
+
+  - name: "buildtag-plugin"
+    url: https://github.com/echocat/teamcity-buildTagsViaBuildLog-plugin/releases/download/v1.0/BuildTagsViaBuildLog.zip
