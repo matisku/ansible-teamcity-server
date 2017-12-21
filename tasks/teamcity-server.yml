@@ -23,7 +23,7 @@
 
 - name: "Put TeamCity service file (systemd)"
   template:
-    src: "teamcity-agent.service.j2"
+    src: "teamcity-server.service.j2"
     dest: "/lib/systemd/system/teamcity-server.service"
     mode: 0644
   when: "ansible_service_mgr == 'systemd'"
