@@ -61,4 +61,4 @@ This role was created by Mateusz Trojak for [Brainly](http://www.brainly.com).
 We are using this role for company CI automation with easy failover mechanism.
 
 ## License
-Copyright © 2017 Mateusz Trojak. See LICENSE for details.
+Copyright © 2016-2018 Mateusz Trojak. See LICENSE for details.
