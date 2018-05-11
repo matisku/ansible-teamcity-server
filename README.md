@@ -24,8 +24,8 @@ This role is compatible with Ubuntu 14.04 and Ubuntu 16.04
 ## Role Variables
 | Variable name                           | Default value                                                      | Description                      |
 |-----------------------------------------|--------------------------------------------------------------------|----------------------------------|
-| teamcity_server_version                 | `2017.2.1`                                                         | TeamCity version to install      |
-| teamcity_server_sha256                  | `5e59854af9ac84db7c460160332987f38ad369849f5226c229a7ee5afc932e6d` | sha256 for TeamCity package      |
+| teamcity_server_version                 | `2017.2.3`                                                         | TeamCity version to install      |
+| teamcity_server_sha256                  | `29d163f76a9baf1d630d5275765c72b2a085f7537945d7e7b263b54b1ccece47` | sha256 for TeamCity package      |
 | teamcity_server_su_user                 | `teamcity`                                                         | Admin user name for TeamCity     |
 | teamcity_server_su_password             | `teamcity`                                                         | Admin user password for TeamCity |
 | teamcity_server_install_dir             | `/opt`                                                             | TeamCity unpack dir              |
