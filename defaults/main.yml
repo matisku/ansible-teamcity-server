@@ -1,7 +1,7 @@
 ---
 # Teamcity Version
-teamcity_server_version: 2017.2.1
-teamcity_server_sha256: 5e59854af9ac84db7c460160332987f38ad369849f5226c229a7ee5afc932e6d
+teamcity_server_version: 2017.2.3
+teamcity_server_sha256: 29d163f76a9baf1d630d5275765c72b2a085f7537945d7e7b263b54b1ccece47
 
 # TeamCity User
 teamcity_server_su_user: teamcity
