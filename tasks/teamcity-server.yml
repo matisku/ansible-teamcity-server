@@ -19,19 +19,23 @@
     src: "teamcity-server.service.j2"
     dest: "/lib/systemd/system/teamcity-server.service"
     mode: 0644
+  register: _teamcity_service 
 
 - name: "Stop TeamCity Server before upgrade"
   systemd:
     name: teamcity-server
     daemon_reload: yes
     state: stopped
-  when: _teamcity_package|changed
+  when: 
+    - _teamcity_package is changed
+    - _teamcity_service is changed
+    - ansible_distribution_version == "16.04"
 
 - name: "Ensure that upgrade will not fail"
   file:
     path: "{{ teamcity_server_dir }}/webapps"
     state: absent
-  when: _teamcity_package|changed
+  when: _teamcity_package is changed
 
 - name: "Unpack distribution"
   unarchive:
@@ -123,6 +127,7 @@
     body:
       username: "{{ teamcity_server_su_user }}"
       password: "{{ teamcity_server_su_password }}"
+    status_code: 302
     body_format: json
     creates: "{{ teamcity_server_admin_user_created }}"
 
@@ -133,6 +138,7 @@
     headers:
       Content-Type: "application/json"
       Authorization: "Basic {{ _base64_token }}"
+    status_code: 401
     body_format: json
     creates: "{{ teamcity_server_admin_user_created }}"
 
