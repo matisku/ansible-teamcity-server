@@ -21,8 +21,9 @@
     mode: 0644
 
 - name: "Stop TeamCity Server before upgrade"
-  service:
+  systemd:
     name: teamcity-server
+    daemon_reload: yes
     state: stopped
   when: _teamcity_package|changed
 
@@ -60,9 +61,10 @@
     mode: 0644
 
 - name: "Start TeamCity service"
-  service:
+  systemd:
     name: teamcity-server
     state: started
+    daemon_reload: yes
     enabled: yes
 
 - name: "Wait until TeamCity starts"
@@ -143,7 +145,8 @@
     mode: 0644
 
 - name: "Ensure TeamCity is running"
-  service:
+  systemd:
     name: teamcity-server
     state: started
+    daemon_reload: yes
     enabled: yes
