@@ -1,7 +1,7 @@
 ---
 # Teamcity Version
-teamcity_server_version: 2017.2.3
-teamcity_server_sha256: 29d163f76a9baf1d630d5275765c72b2a085f7537945d7e7b263b54b1ccece47
+teamcity_server_version: 2018.1.2
+teamcity_server_sha256: cd441b28c7603f9ad2dbd27ae5e35b035dfb90b7a77b7d327c278d71289af942
 
 # TeamCity User
 teamcity_server_su_user: teamcity
@@ -21,7 +21,7 @@ teamcity_server_plugins: []
 teamcity_server_license_keys: []
 
 # MySQL Connector
-teamcity_server_mysql_connector_version: 5.1.40
+teamcity_server_mysql_connector_version: 8.0.12
 teamcity_server_mysql_connector_dir: "/opt/mysql-connector"
 
 # MySQL Database User

@@ -9,6 +9,21 @@ teamcity_server_group: teamcity
 teamcity_server_home: /home/teamcity
 
 teamcity_server_plugins:
+  - name: "github-plugin"
+    url: https://teamcity.jetbrains.com/guestAuth/repository/download/bt398/lastest.lastSuccessful/teamcity.github.zip
+
+  - name: "commit-hook-plugin"
+    url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityCommitHooks_Build/.lastPinned/teamcity-commit-hooks.zip?guest=1
+
+  - name: "achievements-plugin"
+    url: http://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityAchievements_Build/.lastPinned/achievements.zip?guest=1
+
+  - name: "sonar-plugin"
+    url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamCitySonarQubePlugin_Build/.lastPinned/sonar-plugin.zip?guest=1
+
+  - name: "s3cmd-plugin"
+    url: https://github.com/guardian/teamcity-s3-plugin/releases/download/v1.6.0/s3-plugin.zip
+
   - name: "crowd-plugin"
     url: https://dl.bintray.com/greggigon/generic/teamcity-crowd-plugin-0.3.0.zip
 
@@ -21,27 +36,6 @@ teamcity_server_plugins:
   - name: "xunit-plugin"
     url: https://github.com/carlpett/xUnit-TeamCity/releases/download/v1.2.0/xUnit.zip
 
-  - name: "github-plugin"
-    url: http://teamcity.jetbrains.com/guestAuth/repository/download/bt398/lastest.lastSuccessful/teamcity.github.zip
-
-  - name: "commit-hook-plugin"
-    url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityCommitHooks_Build/.lastPinned/teamcity-commit-hooks.zip?guest=1
-
-  - name: "docker-plugin"
-    url: https://teamcity.jetbrains.com/repository/download/TeamCityVirtual_Build/.lastPinned/TeamCity.Virtual.zip?guest=1
-
-  - name: "chuck-plugin"
-    url: https://dl.bintray.com/dbf/teamcity-chuck-plugin/chucktcplugin-0.5.2.zip
-
-  - name: "jira-plugin"
-    url:  https://bitbucket.org/mamirov/jirareporter/downloads/jirareporter.zip
-
-  - name: "achievements-plugin"
-    url: http://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamcityAchievements_Build/.lastPinned/achievements.zip?guest=1
-
-  - name: "s3cmd-plugin"
-    url: https://github.com/guardian/teamcity-s3-plugin/releases/download/v1.6.0/s3-plugin.zip
-
   - name: "build-matrix-plugin"
     url: https://github.com/presidentio/teamcity-matrix-build-plugin/releases/download/v1.0.0/matrix-build.zip
 
@@ -51,8 +45,11 @@ teamcity_server_plugins:
   - name: "webhook-plugin"
     url: https://github.com/tcplugins/tcWebHooks/releases/download/v1.1-alpha8.140.143/tcWebHooksPlugin-1.1-alpha8.140.143.zip
 
-  - name: "sonar-plugin"
-    url: https://teamcity.jetbrains.com/repository/download/TeamCityPluginsByJetBrains_TeamCitySonarQubePlugin_Build/.lastPinned/sonar-plugin.zip?guest=1
-
   - name: "buildtag-plugin"
     url: https://github.com/echocat/teamcity-buildTagsViaBuildLog-plugin/releases/download/v1.0/BuildTagsViaBuildLog.zip
+
+  - name: "chuck-plugin"
+    url: https://dl.bintray.com/dbf/teamcity-chuck-plugin/chucktcplugin-0.5.2.zip
+
+  - name: "jira-plugin"
+    url:  https://bitbucket.org/mamirov/jirareporter/downloads/jirareporter.zip
