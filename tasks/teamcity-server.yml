@@ -14,31 +14,28 @@
     dest: "/etc/default/teamcity-server"
     mode: 0644
 
-- name: "Put TeamCity service file (sysv)"
-  template:
-    src: "teamcity-server.conf.j2"
-    dest: "/etc/init/teamcity-server.conf"
-    mode: 0644
-  when: "ansible_service_mgr != 'systemd'"
-
-- name: "Put TeamCity service file (systemd)"
+- name: "Put TeamCity service file"
   template:
     src: "teamcity-server.service.j2"
     dest: "/lib/systemd/system/teamcity-server.service"
     mode: 0644
-  when: "ansible_service_mgr == 'systemd'"
+  register: _teamcity_service 
 
 - name: "Stop TeamCity Server before upgrade"
-  service:
+  systemd:
     name: teamcity-server
+    daemon_reload: yes
     state: stopped
-  when: _teamcity_package|changed
+  when: 
+    - _teamcity_package is changed
+    - _teamcity_service is changed
+    - ansible_distribution_version == "16.04"
 
 - name: "Ensure that upgrade will not fail"
   file:
     path: "{{ teamcity_server_dir }}/webapps"
     state: absent
-  when: _teamcity_package|changed
+  when: _teamcity_package is changed
 
 - name: "Unpack distribution"
   unarchive:
@@ -68,9 +65,10 @@
     mode: 0644
 
 - name: "Start TeamCity service"
-  service:
+  systemd:
     name: teamcity-server
     state: started
+    daemon_reload: yes
     enabled: yes
 
 - name: "Wait until TeamCity starts"
@@ -129,6 +127,7 @@
     body:
       username: "{{ teamcity_server_su_user }}"
       password: "{{ teamcity_server_su_password }}"
+    status_code: 302
     body_format: json
     creates: "{{ teamcity_server_admin_user_created }}"
 
@@ -139,6 +138,7 @@
     headers:
       Content-Type: "application/json"
       Authorization: "Basic {{ _base64_token }}"
+    status_code: 401
     body_format: json
     creates: "{{ teamcity_server_admin_user_created }}"
 
@@ -151,7 +151,8 @@
     mode: 0644
 
 - name: "Ensure TeamCity is running"
-  service:
+  systemd:
     name: teamcity-server
     state: started
+    daemon_reload: yes
     enabled: yes

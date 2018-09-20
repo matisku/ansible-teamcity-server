@@ -23,7 +23,7 @@
 
 - name: "Create symlink for mysql-connector"
   file:
-    src: "{{ teamcity_server_mysql_connector_dir }}/mysql-connector-java-{{ teamcity_server_mysql_connector_version }}/mysql-connector-java-{{ teamcity_server_mysql_connector_version }}-bin.jar"
+    src: "{{ teamcity_server_mysql_connector_dir }}/mysql-connector-java-{{ teamcity_server_mysql_connector_version }}/mysql-connector-java-{{ teamcity_server_mysql_connector_version }}.jar"
     dest: "{{ teamcity_server_mysql_jdbc_dir }}/mysql-connector-java-bin.jar"
     state: link
     owner: "{{ teamcity_server_user }}"
