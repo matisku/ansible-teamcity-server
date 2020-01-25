@@ -56,3 +56,6 @@ teamcity_server_plugins:
 
   - name: "buildtag-plugin"
     url: https://github.com/echocat/teamcity-buildTagsViaBuildLog-plugin/releases/download/v1.0/BuildTagsViaBuildLog.zip
+
+  - name: "jira-plugin"
+    url:  https://bitbucket.org/mamirov/jirareporter/downloads/jirareporter.zip

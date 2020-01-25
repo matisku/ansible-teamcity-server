@@ -14,4 +14,4 @@ galaxy_info:
     - development
     - teamcity
   dependencies:
-    - ansiblebit.oracle-java
+    - lean_delivery.java

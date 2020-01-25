@@ -1,0 +1,20 @@
+upstream teamcity {
+    server localhost:{{ teamcity_server_bind_port }};
+}
+
+server {
+    server_name {{ teamcity_nginx.hostname }};
+{% if teamcity_nginx.ssl.configure == false %}
+    listen {{ teamcity_nginx.port }};
+{% endif %}
+{% if sonar_proxy_ssl %}
+    listen {{ teamcity_nginx.port }} ssl;
+
+    ssl_certificate {{ teamcity_nginx.port.ssl.cert }};
+    ssl_certificate_key {{ teamcity_nginx.port.ssl.key }};
+{% endif %}
+
+    location / {
+      proxy_pass http://teamcity;
+    }
+}
