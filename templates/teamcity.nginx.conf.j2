@@ -7,7 +7,7 @@ server {
 {% if teamcity_nginx.ssl.configure == false %}
     listen {{ teamcity_nginx.port }};
 {% endif %}
-{% if sonar_proxy_ssl %}
+{% if teamcity_nginx.ssl.configure %}
     listen {{ teamcity_nginx.port }} ssl;
 
     ssl_certificate {{ teamcity_nginx.port.ssl.cert }};
