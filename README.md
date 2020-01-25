@@ -19,13 +19,13 @@ Feel free to use it along with my TeamCity Agent role - [matisku.teamcity-agent]
 This role is compatible with Ubuntu 14.04 and Ubuntu 16.04
 
 ## Requirements
-1. [ansiblebit.oracle-java](https://github.com/ansiblebit/oracle-java) - Java is required on TeamCity Server
+1. [lean_delivery.java](https://github.com/lean-delivery/ansible-role-java) - Java is required on TeamCity Server
 
 ## Role Variables
 | Variable name                           | Default value                                                      | Description                      |
 |-----------------------------------------|--------------------------------------------------------------------|----------------------------------|
-| teamcity_server_version                 | `2017.2.3`                                                         | TeamCity version to install      |
-| teamcity_server_sha256                  | `29d163f76a9baf1d630d5275765c72b2a085f7537945d7e7b263b54b1ccece47` | sha256 for TeamCity package      |
+| teamcity_server_version                 | `2019.2.1`                                                         | TeamCity version to install      |
+| teamcity_server_sha256                  | `ab74aa6caa6ea0eebbc02af28521474cf610a7b43d502125c5469240325cdf42` | sha256 for TeamCity package      |
 | teamcity_server_su_user                 | `teamcity`                                                         | Admin user name for TeamCity     |
 | teamcity_server_su_password             | `teamcity`                                                         | Admin user password for TeamCity |
 | teamcity_server_install_dir             | `/opt`                                                             | TeamCity unpack dir              |
@@ -38,10 +38,40 @@ This role is compatible with Ubuntu 14.04 and Ubuntu 16.04
 | teamcity_server_mysql_db_user           | `teamcity`                                                         | TeamCity MySQL user name         |
 | teamcity_server_mysql_db_password       | `teamcity`                                                         | TeamCity MySQL user password     |
 | teamcity_server_mysql_db_name           | `teamcity`                                                         | TeamCity MySQL database          |
-| teamcity_server_db_type                 | `local`                                                            | Database version: local or mysql |
+| teamcity_server_db_type                 | `local`                                                            | Database version: local, mysql or postgresql |
 | teamcity_server_mysql_database_url      | `localhost`                                                        | MySQL database URL               |
 | teamcity_server_mysql_database_port     | `3306`                                                             | MySQL database port              |
-| teamcity_server_mysql_jdbc_dir          | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
+| teamcity_server_jdbc_dir                | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
+
+## Setting up for Postgres
+Set the variable `teamcity_server_db_type` to `postgres`.
+
+Make sure that you set the correct variables for Postgres
+
+```yaml
+teamcity_db:
+  - host: "localhost"
+  - name: "teamcity"
+  - user: "teamcity"
+  - pass: "teamcity"
+  - port: 5432
+```
+
+## nginx Proxy
+Set the following variables. If `teamcity_nginx.proxy` is set to false, nginx will not be configured.
+```yaml
+teamcity_hostname: teamcity.example.org
+
+teamcity_nginx:
+  - proxy: false
+  - config_path: /etc/nginx/conf.d/teamcity.conf
+  - hostname: "{{ teamcity_hostname }}"
+  - ssl:
+      - configure: false
+      - cert: /etc/letsencrypt/live/{{ teamcity_hostname }}/fullchain.pem
+      - key:  /etc/letsencrypt/live/{{ teamcity_hostname }}/privkey.pem
+  - port: 443
+```
 
 ## Dependencies
 This role depends on `java` role. 

@@ -32,13 +32,13 @@
   service:
     name: teamcity-server
     state: stopped
-  when: _teamcity_package|changed
+  when: _teamcity_package is changed
 
 - name: "Ensure that upgrade will not fail"
   file:
     path: "{{ teamcity_server_dir }}/webapps"
     state: absent
-  when: _teamcity_package|changed
+  when: _teamcity_package is changed
 
 - name: "Unpack distribution"
   unarchive:
@@ -109,7 +109,7 @@
     mode: 0644
 
 - name: "Get Authentication Token"
-  shell: "grep -ioE 'Super user authentication token: \"(.*)\"' {{ teamcity_server_dir }}/logs/teamcity-server.log | tail -1 | cut -f2 -d'\"'"
+  shell: "grep -ioE 'Super user authentication token: (.*)' {{ teamcity_server_dir }}/logs/teamcity-server.log | tail -1 | sed 's/.*token:[ \"]*\\([a-zA-Z0-9]*\\).*/\\1/'"
   register: _token
   check_mode: no
   args:

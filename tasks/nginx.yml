@@ -1,0 +1,13 @@
+---
+# configure nginx proxy
+- name: Become section
+  block:
+
+    - name: Render nginx config
+      template:
+        src: teamcity.nginx.conf.j2
+        dest: '{{ teamcity_nginx.config_path }}'
+        mode: 0444
+        owner: '{{ teamcity_server_su_user }}'
+      when:
+        - teamcity_nginx.proxy == true

@@ -2,6 +2,10 @@
 - include: create-teamcity-user.yml
 - include: mysql-connector.yml
   when: "teamcity_server_db_type == 'mysql'"
+- include: postgres-connector.yml
+  when: "teamcity_server_db_type == 'postgres'"
 - include: teamcity-server.yml
 - include: install-plugins.yml
+- include: nginx.yml
+  when: teamcity_nginx.proxy == true
 - include: license.yml

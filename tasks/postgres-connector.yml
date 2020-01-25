@@ -1,0 +1,13 @@
+---
+- name: "Create jdbc dir"
+  file:
+    path: "{{ teamcity_server_jdbc_dir }}"
+    state: directory
+    owner: "{{ teamcity_server_user }}"
+    group: "{{ teamcity_server_group }}"
+    mode: 0755
+
+- name: "Download and unpack Postgres JDBC driver"
+  get_url:
+    url: "{{ teamcity_server_postgres_jdbc_url }}"
+    dest: "{{ teamcity_server_jdbc_dir }}"
