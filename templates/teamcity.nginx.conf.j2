@@ -10,8 +10,8 @@ server {
 {% if teamcity_nginx.ssl.configure %}
     listen {{ teamcity_nginx.port }} ssl;
 
-    ssl_certificate {{ teamcity_nginx.port.ssl.cert }};
-    ssl_certificate_key {{ teamcity_nginx.port.ssl.key }};
+    ssl_certificate {{ teamcity_nginx.ssl.cert }};
+    ssl_certificate_key {{ teamcity_nginx.ssl.key }};
 {% endif %}
 
     location / {
