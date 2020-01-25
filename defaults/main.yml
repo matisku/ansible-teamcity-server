@@ -36,8 +36,8 @@ teamcity_server_mysql_db_user: teamcity
 teamcity_server_mysql_db_password: teamcity
 teamcity_server_mysql_db_name: teamcity
 
-# MySQL DB type: Available values: local, mysql, postgres
-teamcity_server_db_type: "postgres"
+# MySQL DB type: Available values: local, mysql, postgresql
+teamcity_server_db_type: "postgresql"
 
 teamcity_db:
   type: "{{ teamcity_server_db_type }}"

@@ -38,7 +38,7 @@ This role is compatible with Ubuntu 14.04 and Ubuntu 16.04
 | teamcity_server_mysql_db_user           | `teamcity`                                                         | TeamCity MySQL user name         |
 | teamcity_server_mysql_db_password       | `teamcity`                                                         | TeamCity MySQL user password     |
 | teamcity_server_mysql_db_name           | `teamcity`                                                         | TeamCity MySQL database          |
-| teamcity_server_db_type                 | `local`                                                            | Database version: local, mysql or postgres |
+| teamcity_server_db_type                 | `local`                                                            | Database version: local, mysql or postgresql |
 | teamcity_server_mysql_database_url      | `localhost`                                                        | MySQL database URL               |
 | teamcity_server_mysql_database_port     | `3306`                                                             | MySQL database port              |
 | teamcity_server_jdbc_dir                | `{{ teamcity_server_data_dir }}/lib/jdbc`                          | MySQL JDBC driver location       |
