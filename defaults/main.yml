@@ -59,6 +59,8 @@ teamcity_nginx:
       - key:  /etc/letsencrypt/live/{{ teamcity_hostname }}/privkey.pem
   - port: 443
 
+teamcity_server_groups: "www-data"
+
 # MySQL DB Server
 teamcity_server_mysql_database_url: "{{ teamcity_db.host }}"
 teamcity_server_mysql_database_port: "{{ teamcity_db.port }}"
