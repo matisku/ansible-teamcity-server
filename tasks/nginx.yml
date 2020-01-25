@@ -10,4 +10,4 @@
         mode: 0444
         owner: '{{ teamcity_server_su_user }}'
       when:
-        - teamcity_nginx.proxy == 'true'
+        - teamcity_nginx.proxy == true
