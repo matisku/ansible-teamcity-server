@@ -109,7 +109,7 @@
     mode: 0644
 
 - name: "Get Authentication Token"
-  shell: "grep -ioE 'Super user authentication token: (.*)' {{ teamcity_server_dir }}/logs/teamcity-server.log | tail -1 | sed 's/.*token:[ \"]*\([a-zA-Z0-9]*\).*/\1/'"
+  shell: "grep -ioE 'Super user authentication token: (.*)' {{ teamcity_server_dir }}/logs/teamcity-server.log | tail -1 | sed 's/.*token:[ \"]*\\([a-zA-Z0-9]*\\).*/\\1/'"
   register: _token
   check_mode: no
   args:
