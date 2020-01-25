@@ -7,5 +7,5 @@
 - include: teamcity-server.yml
 - include: install-plugins.yml
 - include: nginx.yml
-  when: teamcity_nginx.proxy is true
+  when: teamcity_nginx.proxy == true
 - include: license.yml
