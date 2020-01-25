@@ -32,13 +32,13 @@
   service:
     name: teamcity-server
     state: stopped
-  when: _teamcity_package|changed
+  when: _teamcity_package is changed
 
 - name: "Ensure that upgrade will not fail"
   file:
     path: "{{ teamcity_server_dir }}/webapps"
     state: absent
-  when: _teamcity_package|changed
+  when: _teamcity_package is changed
 
 - name: "Unpack distribution"
   unarchive:
