@@ -7,8 +7,7 @@
     group: "{{ teamcity_server_group }}"
     mode: 0755
 
-- name: "Download and unpack mysql-connector"
+- name: "Download and unpack Postgres JDBC driver"
   get_url:
     url: "{{ teamcity_server_postgres_jdbc_url }}"
     dest: "{{ teamcity_server_jdbc_dir }}"
-    copy: no
